@@ -1,3 +1,6 @@
+using SubjectManagerAPI;
+using SubjectManagerAPI.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,9 +10,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<SubjectManagerDbContext>();
+builder.Services.AddScoped<SubjectManagerSeeder>();
 var app = builder.Build();
+var db = new SubjectManagerDbContext();
+var seeder = new SubjectManagerSeeder(db);
 
 // Configure the HTTP request pipeline.
+seeder.Seed();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -23,11 +23,11 @@ namespace SubjectManagerAPI.Middleware
                 context.Response.StatusCode = 400;
                 await context.Response.WriteAsync(badRequestException.Message);
             }
-            //catch (NotFoundException NotFoundException)
-            //{
-            //    context.Response.StatusCode = 404;
-            //    await context.Response.WriteAsync(NotFoundException.Message);
-            //}
+            catch (NotFoundException NotFoundException)
+            {
+                context.Response.StatusCode = 404;
+                await context.Response.WriteAsync(NotFoundException.Message);
+            }
             catch (Exception e)
             {
                 _logger.LogError(e, e.Message);

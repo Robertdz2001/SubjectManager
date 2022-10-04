@@ -45,6 +45,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<SubjectManagerDbContext>();
 builder.Services.AddScoped<SubjectManagerSeeder>();
 builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddScoped<ISubjectService, SubjectService>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserDtoValidator>();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();

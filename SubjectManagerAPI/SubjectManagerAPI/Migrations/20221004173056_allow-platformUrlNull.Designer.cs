@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SubjectManagerAPI.Entities;
 
@@ -11,9 +12,10 @@ using SubjectManagerAPI.Entities;
 namespace SubjectManagerAPI.Migrations
 {
     [DbContext(typeof(SubjectManagerDbContext))]
-    partial class SubjectManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221004173056_allow-platformUrlNull")]
+    partial class allowplatformUrlNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

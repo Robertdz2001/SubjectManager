@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "WERvD7DpDQwDcLqPUsfHukoRLbktyuJij/nFpYvfeBfuh9Vm2d3/e2L5k10mwDorlutBBEg3aoBOBhJb/3h8iQ==",
+  "dgSpecHash": "Eb00BeEyHnREhpzcrgdjR9gmK43fo5oFQeTpoY+PCrrwtSZlSDb3awaGsfirQ3DEbOyyLPZrboTW085GKQHC5Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\rober\\Desktop\\github\\SubjectManager\\SubjectManagerAPI\\SubjectManagerAPI\\SubjectManagerAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rober\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",

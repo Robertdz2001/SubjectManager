@@ -66,3 +66,4 @@ C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI
 C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\obj\Debug\net6.0\SubjectManagerAPI.pdb
 C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\obj\Debug\net6.0\SubjectManagerAPI.genruntimeconfig.cache
 C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\obj\Debug\net6.0\ref\SubjectManagerAPI.dll
+C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

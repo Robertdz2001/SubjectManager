@@ -17,10 +17,17 @@ namespace SubjectManagerAPI.Controllers
 
 
         [HttpPost("register")]
-        public async Task<ActionResult> RegisterUser([FromBody]RegisterUserDto dto)
+        public async Task<ActionResult> RegisterUser([FromBody] RegisterUserDto dto)
         {
             await _service.RegisterUser(dto);
             return Ok();
+        }
+        [HttpPost("login")]
+        public async Task<ActionResult> Login([FromBody] LoginDto dto)
+        {
+            string token = await _service.GenerateJwt(dto);
+            return Ok(token);
+
         }
 
         

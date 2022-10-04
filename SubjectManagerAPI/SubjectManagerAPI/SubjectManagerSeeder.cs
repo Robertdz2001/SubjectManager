@@ -34,12 +34,14 @@ namespace SubjectManagerAPI
                 {
                     Email = "test1@test.com",
                     FirstName="TestFirstName",
+                    PhoneNumber="65485493543",
                     Subjects = new List<Subject>()
                     {
                        new Subject()
                        {
                            Name="TestSubject",
                            ShortName="TS",
+                           PlatformUrl="http://testPlatform1.com",
                            Tests = new List<Test>()
                            {
                             new Test()
@@ -53,6 +55,19 @@ namespace SubjectManagerAPI
                             Name = "TestTest2",
 
                              }
+                           },
+                           LearningMaterials = new List<LearningMaterial>()
+                           {
+                               new LearningMaterial()
+                               {
+                                   Name="test1Material",
+                                   Source="http://test1.com"
+                               },
+                               new LearningMaterial()
+                               {
+                                   Name="test2Material",
+                                   Source="http://test2.com"
+                               }
                            }
                        }
 
@@ -64,12 +79,15 @@ namespace SubjectManagerAPI
                 {
                     Email = "test2@test.com",
                     FirstName="John",
+                    LastName="Bill",
+                    PhoneNumber="48549304835",
                     Subjects = new List<Subject>()
                     {
                        new Subject()
                        {
                            Name="Informatics",
                            ShortName="IT",
+                           PlatformUrl="http://testPlatform2.com",
                            Tests = new List<Test>()
                            {
                             new Test()
@@ -83,6 +101,19 @@ namespace SubjectManagerAPI
                             Name = "AutoMapper",
 
                              }
+                           },
+                            LearningMaterials = new List<LearningMaterial>()
+                           {
+                               new LearningMaterial()
+                               {
+                                   Name="test3Material",
+                                   Source="http://test3.com"
+                               },
+                               new LearningMaterial()
+                               {
+                                   Name="test4Material",
+                                   Source="http://test4.com"
+                               }
                            }
                        }
 

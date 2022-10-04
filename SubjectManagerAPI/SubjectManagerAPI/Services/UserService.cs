@@ -27,6 +27,7 @@ namespace SubjectManagerAPI.Services
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
                 Email = dto.Email,
+                PhoneNumber = dto.PhoneNumber,
             };
             newUser.PasswordHash = _passwordHasher.HashPassword(newUser, dto.Password);
            await _context.Users.AddAsync(newUser);

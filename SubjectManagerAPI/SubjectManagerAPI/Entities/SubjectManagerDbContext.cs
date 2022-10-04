@@ -10,6 +10,7 @@ namespace SubjectManagerAPI.Entities
         public DbSet<User> Users { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Test> Tests { get; set; }
+        public DbSet<LearningMaterial> LearningMaterials { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,6 +33,14 @@ namespace SubjectManagerAPI.Entities
                 .HasMaxLength(30)
                 .IsRequired();
 
+            modelBuilder.Entity<LearningMaterial>()
+                .Property(l => l.Name)
+                .HasMaxLength(30)
+                .IsRequired();
+
+            modelBuilder.Entity<LearningMaterial>()
+                .Property(l => l.Source)
+                .IsRequired();
 
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -22,6 +22,33 @@ namespace SubjectManagerAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("SubjectManagerAPI.Entities.LearningMaterial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Source")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("LearningMaterials");
+                });
+
             modelBuilder.Entity("SubjectManagerAPI.Entities.Subject", b =>
                 {
                     b.Property<int>("Id")
@@ -37,6 +64,10 @@ namespace SubjectManagerAPI.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("PlatformUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("RoomNumber")
                         .HasColumnType("int");
@@ -110,9 +141,23 @@ namespace SubjectManagerAPI.Migrations
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("SubjectManagerAPI.Entities.LearningMaterial", b =>
+                {
+                    b.HasOne("SubjectManagerAPI.Entities.Subject", "Subject")
+                        .WithMany("LearningMaterials")
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Subject");
                 });
 
             modelBuilder.Entity("SubjectManagerAPI.Entities.Subject", b =>
@@ -139,6 +184,8 @@ namespace SubjectManagerAPI.Migrations
 
             modelBuilder.Entity("SubjectManagerAPI.Entities.Subject", b =>
                 {
+                    b.Navigation("LearningMaterials");
+
                     b.Navigation("Tests");
                 });
 

@@ -1,4 +1,6 @@
-﻿namespace SubjectManagerAPI.Models
+﻿using SubjectManagerAPI.Models.SubjectDtos;
+
+namespace SubjectManagerAPI.Models.TestDtos
 {
     public class TestDto
     {
@@ -6,5 +8,6 @@
         public string Name { get; set; }
         public string? Description { get; set; }
         public DateTime? Date { get; set; }
+        public ShortSubjectDto? Subject { get; set; }
     }
 }

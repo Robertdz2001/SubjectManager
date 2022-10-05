@@ -1,9 +1,6 @@
-﻿using SubjectManagerAPI.Entities;
-using SubjectManagerAPI.Models.TestDtos;
-
-namespace SubjectManagerAPI.Models.SubjectDtos
+﻿namespace SubjectManagerAPI.Models.SubjectDtos
 {
-    public class SubjectDto
+    public class ShortSubjectDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -12,7 +9,5 @@ namespace SubjectManagerAPI.Models.SubjectDtos
         public DayOfWeek? DayOfWeek { get; set; }
         public string? Time { get; set; }
         public string? PlatformUrl { get; set; }
-        public List<TestDto> Tests { get; set; }
-        public List<LearningMaterialDto> LearningMaterials { get; set; }
     }
 }

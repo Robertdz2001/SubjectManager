@@ -2,6 +2,7 @@
 using SubjectManagerAPI.Entities;
 using SubjectManagerAPI.Models;
 using SubjectManagerAPI.Models.SubjectDtos;
+using SubjectManagerAPI.Models.TestDtos;
 
 namespace SubjectManagerAPI
 {
@@ -13,6 +14,7 @@ namespace SubjectManagerAPI
             CreateMap<Test, TestDto>();
             CreateMap<LearningMaterial, LearningMaterialDto>();
             CreateMap<CreateSubjectDto, Subject>();
+            CreateMap<Subject,ShortSubjectDto>();
         }
     }
 }

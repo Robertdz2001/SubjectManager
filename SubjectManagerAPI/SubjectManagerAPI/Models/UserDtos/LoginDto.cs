@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SubjectManagerAPI.Models
+namespace SubjectManagerAPI.Models.UserDtos
 {
     public class LoginDto
     {

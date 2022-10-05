@@ -23,10 +23,7 @@ namespace SubjectManagerAPI.Controllers
         public async Task<ActionResult<IEnumerable<SubjectDto>>> GetAll()
         {
 
-            var claims = HttpContext.User.Claims.ToList();
-            var claim = claims[0];
-            int userId = int.Parse(claim.Value);
-            var subjects = await _service.GetAll(userId);
+            var subjects = await _service.GetAll();
             return Ok(subjects);
         }
 
@@ -34,11 +31,8 @@ namespace SubjectManagerAPI.Controllers
 
         public async Task<ActionResult<SubjectDto>> GetById([FromRoute] int sid)
         {
-            var claims = HttpContext.User.Claims.ToList();
-            var claim = claims[0];
-            int userId = int.Parse(claim.Value);
 
-            var subject = await _service.GetById(sid, userId);
+            var subject = await _service.GetById(sid);
             return Ok(subject);
 
         }
@@ -47,11 +41,8 @@ namespace SubjectManagerAPI.Controllers
 
         public async Task<ActionResult> CreateSubject([FromBody] CreateSubjectDto dto)
         {
-            var claims = HttpContext.User.Claims.ToList();
-            var claim = claims[0];
-            int userId = int.Parse(claim.Value);
 
-            int id = await _service.CreateSubject(dto, userId);
+            int id = await _service.CreateSubject(dto);
 
             return Created($"/api/subjects/{id}", null);
         }
@@ -60,11 +51,8 @@ namespace SubjectManagerAPI.Controllers
 
         public async Task<ActionResult> UpdateSubject([FromBody] CreateSubjectDto dto, [FromRoute] int sid)
         {
-            var claims = HttpContext.User.Claims.ToList();
-            var claim = claims[0];
-            int userId = int.Parse(claim.Value);
 
-            await _service.UpdateSubject(dto, sid, userId);
+            await _service.UpdateSubject(dto, sid);
 
             return Ok();
 
@@ -74,11 +62,8 @@ namespace SubjectManagerAPI.Controllers
 
         public async Task<ActionResult> DeleteSubject([FromRoute] int sid)
         {
-            var claims = HttpContext.User.Claims.ToList();
-            var claim = claims[0];
-            int userId = int.Parse(claim.Value);
 
-            await _service.DeleteSubject(sid, userId);
+            await _service.DeleteSubject(sid);
 
             return NoContent();
         }

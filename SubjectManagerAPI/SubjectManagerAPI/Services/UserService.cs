@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using SubjectManagerAPI.Entities;
 using SubjectManagerAPI.Exceptions;
 using SubjectManagerAPI.Models;
+using SubjectManagerAPI.Models.UserDtos;
 
 namespace SubjectManagerAPI.Services
 {

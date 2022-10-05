@@ -39,5 +39,25 @@ namespace SubjectManagerAPI.Controllers
             var test = await _service.GetById(tid, sid);
             return Ok(test);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateTest([FromRoute] int sid, [FromBody] CreateTestDto dto)
+        {
+            int id = await _service.CreateTest(sid, dto);
+            return Created($"/api/subjects/{sid}/tests/{id}",null);
+        }
+        [HttpPut("{tid}")]
+        public async Task<ActionResult> UpdateTest([FromRoute] int sid,[FromBody] CreateTestDto dto, [FromRoute] int tid)
+        {
+            await _service.UpdateTest(sid, dto, tid);
+            return Ok(dto);
+        }
+
+        [HttpDelete("{tid}")]
+        public async Task<ActionResult> DeleteTest([FromRoute] int sid, [FromRoute] int tid)
+        {
+            await _service.DeleteTest(sid, tid);
+            return NoContent();
+        }
     }
 }

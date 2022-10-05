@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SubjectManagerAPI.Entities;
 using SubjectManagerAPI.Exceptions;
@@ -10,9 +11,12 @@ namespace SubjectManagerAPI.Services
 {
     public interface ITestService
     {
+        Task<int> CreateTest(int sid, CreateTestDto dto);
+        Task DeleteTest(int sid, int tid);
         Task<IEnumerable<TestDto>> GetAllSubjectTests(int sid);
-        Task<IEnumerable<TestDto>> GetAllUserTests();
+        Task<IEnumerable<TestWithSubjectDto>> GetAllUserTests();
         Task<TestDto> GetById(int tid, int sid);
+        Task UpdateTest(int sid, CreateTestDto dto, int tid);
     }
 
     public class TestService : ITestService
@@ -27,18 +31,18 @@ namespace SubjectManagerAPI.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<TestDto>> GetAllUserTests()
+        public async Task<IEnumerable<TestWithSubjectDto>> GetAllUserTests()
         {
             int? userId = _userContextService.GetUserId;
             var tests = await _context.Tests
                 .Where(t => t.Subject.UserId == userId)
-                .Include(t=>t.Subject)
+                .Include(t => t.Subject)
                 .ToListAsync();
             if (tests.Count == 0)
             {
-                throw new NotFoundException("Not Found"); 
+                throw new NotFoundException("Not Found");
             }
-            var testDtos = _mapper.Map<List<TestDto>>(tests);
+            var testDtos = _mapper.Map<List<TestWithSubjectDto>>(tests);
             return testDtos;
 
         }
@@ -49,7 +53,7 @@ namespace SubjectManagerAPI.Services
                 .Where(t => t.Subject.UserId == userId)
                 .Where(t => t.SubjectId == sid)
                 .ToListAsync();
-            if(tests.Count==0)
+            if (tests.Count == 0)
             {
                 throw new NotFoundException("Not Found");
 
@@ -66,7 +70,7 @@ namespace SubjectManagerAPI.Services
                 .Where(t => t.SubjectId == sid)
                 .FirstOrDefaultAsync(t => t.Id == tid);
 
-            if(test == null)
+            if (test == null)
             {
                 throw new NotFoundException("Not Found");
             }
@@ -74,6 +78,64 @@ namespace SubjectManagerAPI.Services
             var testDto = _mapper.Map<TestDto>(test);
             return testDto;
 
+        }
+        public async Task<int> CreateTest(int sid, CreateTestDto dto)
+        {
+            int? userId = _userContextService.GetUserId;
+            var newTest = _mapper.Map<Test>(dto);
+
+            newTest.SubjectId = sid;
+            var subject = await _context.Subjects.FirstOrDefaultAsync(s => s.Id == sid);
+            if(subject==null)
+            {
+                throw new NotFoundException("Not Found");
+            }
+
+            if(subject.UserId!=userId)
+            {
+                throw new BadRequestException("Bad Request");
+            }
+            await _context.Tests.AddAsync(newTest);
+            await _context.SaveChangesAsync();
+            return newTest.Id;
+        }
+
+        public async Task UpdateTest(int sid, CreateTestDto dto, int tid)
+        {
+            int? userId = _userContextService.GetUserId;
+
+            var updateTest = await _context.Tests
+                .Where(t => t.Subject.UserId == userId)
+                .Where(t => t.SubjectId == sid)
+                .FirstOrDefaultAsync(t => t.Id == tid);
+
+            if(updateTest==null)
+            {
+                throw new NotFoundException("Not Found");
+            }
+
+            updateTest.Name = dto.Name;
+            updateTest.Description = dto.Description;
+            updateTest.Date = dto.Date;
+
+            await _context.SaveChangesAsync();
+
+        }
+        public async Task DeleteTest(int sid, int tid)
+        {
+            int? userId = _userContextService.GetUserId;
+
+            var removeTest = await _context.Tests
+                .Where(t => t.Subject.UserId == userId)
+                .Where(t => t.SubjectId == sid)
+                .FirstOrDefaultAsync(t => t.Id == tid);
+
+            if(removeTest==null)
+            {
+                throw new NotFoundException("Not Found");
+            }
+            _context.Tests.Remove(removeTest);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿using SubjectManagerAPI.Models.SubjectDtos;
+﻿using System.Runtime.CompilerServices;
 
 namespace SubjectManagerAPI.Models.TestDtos
 {
-    public class TestDto
+    public class CreateTestDto
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
         public DateTime? Date { get; set; }

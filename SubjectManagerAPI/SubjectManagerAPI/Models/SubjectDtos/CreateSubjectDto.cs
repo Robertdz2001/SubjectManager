@@ -13,6 +13,8 @@ namespace SubjectManagerAPI.Models.SubjectDtos
         public string ShortName { get; set; }
         public int? RoomNumber { get; set; }
         public DayOfWeek? DayOfWeek { get; set; }
+
+        [RegularExpression("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$")]
         public string? Time { get; set; }
         public string? PlatformUrl { get; set; }
     }

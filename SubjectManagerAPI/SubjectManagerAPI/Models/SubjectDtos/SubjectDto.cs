@@ -1,4 +1,5 @@
 ﻿using SubjectManagerAPI.Entities;
+using SubjectManagerAPI.Models.LearningMaterialDtos;
 using SubjectManagerAPI.Models.TestDtos;
 
 namespace SubjectManagerAPI.Models.SubjectDtos

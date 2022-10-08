@@ -50,6 +50,7 @@ builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserDtoValidator
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<IUserContextService,UserContextService>();
 builder.Services.AddScoped<ITestService, TestService>();
+builder.Services.AddScoped<ILearningMaterialService, LearningMaterialService>();
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();

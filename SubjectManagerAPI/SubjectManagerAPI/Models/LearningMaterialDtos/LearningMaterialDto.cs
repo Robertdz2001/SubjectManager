@@ -1,4 +1,4 @@
-﻿namespace SubjectManagerAPI.Models
+﻿namespace SubjectManagerAPI.Models.LearningMaterialDtos
 {
     public class LearningMaterialDto
     {

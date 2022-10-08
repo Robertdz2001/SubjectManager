@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using SubjectManagerAPI.Entities;
-using SubjectManagerAPI.Models;
+using SubjectManagerAPI.Models.LearningMaterialDtos;
 using SubjectManagerAPI.Models.SubjectDtos;
 using SubjectManagerAPI.Models.TestDtos;
 
@@ -17,6 +17,7 @@ namespace SubjectManagerAPI
             CreateMap<CreateSubjectDto, Subject>();
             CreateMap<Subject,ShortSubjectDto>();
             CreateMap<CreateTestDto, Test>();
+            CreateMap<CreateLearningMaterialDto, LearningMaterial>();
         }
     }
 }

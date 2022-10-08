@@ -12,8 +12,8 @@ using SubjectManagerAPI.Entities;
 namespace SubjectManagerAPI.Migrations
 {
     [DbContext(typeof(SubjectManagerDbContext))]
-    [Migration("20221004173056_allow-platformUrlNull")]
-    partial class allowplatformUrlNull
+    [Migration("20221008145155_changes")]
+    partial class changes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,8 +34,8 @@ namespace SubjectManagerAPI.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
 
                     b.Property<string>("Source")
                         .IsRequired()
@@ -107,8 +107,8 @@ namespace SubjectManagerAPI.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
 
                     b.Property<int>("SubjectId")
                         .HasColumnType("int");

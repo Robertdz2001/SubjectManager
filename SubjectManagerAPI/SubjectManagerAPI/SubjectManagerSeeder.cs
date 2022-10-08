@@ -32,41 +32,48 @@ namespace SubjectManagerAPI
             {
                 new User()
                 {
-                    Email = "test1@test.com",
-                    FirstName="TestFirstName",
+                    Email = "bill2315@gmail.com",
+                    FirstName="Bill",
+                    LastName="Smith",
                     PhoneNumber="65485493543",
+                    PasswordHash="AQAAAAEAACcQAAAAEJgxNorzKzcpDi90JSCKGbqloXVb31ts+zm3VD+ajhl0Y4I011sLS2fUNEYMhJqt8g==", //password  = 123456
                     Subjects = new List<Subject>()
                     {
                        new Subject()
                        {
-                           Name="TestSubject",
-                           ShortName="TS",
-                           PlatformUrl="http://testPlatform1.com",
+                           Name="Mathematics",
+                           ShortName="Math",
+                           RoomNumber=305,
+                           DayOfWeek=DayOfWeek.Monday,
+                           Time="12:00",
+                           PlatformUrl="http://mathPlatform1.com",
                            Tests = new List<Test>()
                            {
                             new Test()
                             {
-                            Name = "TestTest1"
-
+                            Name = "Integrals",
+                            Description = "Solving differential equations",
+                            Date = new DateTime(2022,11,22)
                             },
 
                              new Test()
                              {
-                            Name = "TestTest2",
-
+                            Name = "Derivatives",
+                            Description = "Determining the extreme of a function",
+                            Date = new DateTime(2022,12,25)
                              }
                            },
                            LearningMaterials = new List<LearningMaterial>()
                            {
                                new LearningMaterial()
                                {
-                                   Name="test1Material",
-                                   Source="http://test1.com"
+                                   Name="Discrete Mathematics with Applications",
+                                   Source="https://tiny.pl/w7skk"
                                },
                                new LearningMaterial()
                                {
-                                   Name="test2Material",
-                                   Source="http://test2.com"
+                                   Name="Math platform",
+                                   Source="http://4math.ms.polsl.pl/"
                                }
                            }
                        }
@@ -77,30 +84,29 @@ namespace SubjectManagerAPI
 
                 new User()
                 {
-                    Email = "test2@test.com",
+                    Email = "john328@gmail.com",
                     FirstName="John",
-                    LastName="Bill",
+                    LastName="Williams",
                     PhoneNumber="48549304835",
+                    PasswordHash="AQAAAAEAACcQAAAAEJgxNorzKzcpDi90JSCKGbqloXVb31ts+zm3VD+ajhl0Y4I011sLS2fUNEYMhJqt8g==", //password  = 123456
                     Subjects = new List<Subject>()
                     {
                        new Subject()
                        {
                            Name="Informatics",
                            ShortName="IT",
-                           PlatformUrl="http://testPlatform2.com",
+                           PlatformUrl="http://ITPlatform.com",
+                           RoomNumber=124,
+                           DayOfWeek=DayOfWeek.Wednesday,
+                           Time="14:00",
                            Tests = new List<Test>()
                            {
                             new Test()
                             {
-                            Name = "EF"
+                            Name = "EF",
+                            Description = "Creating Entities"
 
-                            },
-
-                             new Test()
-                             {
-                            Name = "AutoMapper",
-
-                             }
+                            }
                            },
                             LearningMaterials = new List<LearningMaterial>()
                            {

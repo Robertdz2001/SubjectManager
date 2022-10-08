@@ -30,12 +30,12 @@ namespace SubjectManagerAPI.Entities
 
             modelBuilder.Entity<Test>()
                 .Property(t => t.Name)
-                .HasMaxLength(30)
+                .HasMaxLength(70)
                 .IsRequired();
 
             modelBuilder.Entity<LearningMaterial>()
                 .Property(l => l.Name)
-                .HasMaxLength(30)
+                .HasMaxLength(70)
                 .IsRequired();
 
             modelBuilder.Entity<LearningMaterial>()

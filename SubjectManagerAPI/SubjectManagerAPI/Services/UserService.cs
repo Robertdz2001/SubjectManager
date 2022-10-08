@@ -40,6 +40,7 @@ namespace SubjectManagerAPI.Services
                 PhoneNumber = dto.PhoneNumber,
             };
             newUser.PasswordHash = _passwordHasher.HashPassword(newUser, dto.Password);
+
            await _context.Users.AddAsync(newUser);
            await _context.SaveChangesAsync();
         }

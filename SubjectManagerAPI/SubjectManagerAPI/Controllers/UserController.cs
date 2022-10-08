@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SubjectManagerAPI.Models;
 using SubjectManagerAPI.Models.UserDtos;
 using SubjectManagerAPI.Services;
@@ -31,6 +32,5 @@ namespace SubjectManagerAPI.Controllers
 
         }
 
-        
     }
 }

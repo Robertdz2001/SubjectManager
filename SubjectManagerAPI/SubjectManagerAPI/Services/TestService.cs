@@ -50,8 +50,7 @@ namespace SubjectManagerAPI.Services
         {
             int? userId = _userContextService.GetUserId;
             var tests = await _context.Tests
-                .Where(t => t.Subject.UserId == userId)
-                .Where(t => t.SubjectId == sid)
+                .Where(t => t.Subject.UserId == userId && t.SubjectId == sid)
                 .ToListAsync();
             if (tests.Count == 0)
             {
@@ -66,11 +65,10 @@ namespace SubjectManagerAPI.Services
             int? userId = _userContextService.GetUserId;
 
             var test = await _context.Tests
-                .Where(t => t.Subject.UserId == userId)
-                .Where(t => t.SubjectId == sid)
+                .Where(t => t.Subject.UserId == userId && t.SubjectId == sid)
                 .FirstOrDefaultAsync(t => t.Id == tid);
 
-            if (test == null)
+            if (test is null)
             {
                 throw new NotFoundException("Not Found");
             }
@@ -86,7 +84,7 @@ namespace SubjectManagerAPI.Services
 
             newTest.SubjectId = sid;
             var subject = await _context.Subjects.FirstOrDefaultAsync(s => s.Id == sid);
-            if(subject==null)
+            if(subject is null)
             {
                 throw new NotFoundException("Not Found");
             }
@@ -105,11 +103,10 @@ namespace SubjectManagerAPI.Services
             int? userId = _userContextService.GetUserId;
 
             var updateTest = await _context.Tests
-                .Where(t => t.Subject.UserId == userId)
-                .Where(t => t.SubjectId == sid)
+                .Where(t => t.Subject.UserId == userId && t.SubjectId == sid)
                 .FirstOrDefaultAsync(t => t.Id == tid);
 
-            if(updateTest==null)
+            if(updateTest is null)
             {
                 throw new NotFoundException("Not Found");
             }
@@ -126,11 +123,10 @@ namespace SubjectManagerAPI.Services
             int? userId = _userContextService.GetUserId;
 
             var removeTest = await _context.Tests
-                .Where(t => t.Subject.UserId == userId)
-                .Where(t => t.SubjectId == sid)
+                .Where(t => t.Subject.UserId == userId && t.SubjectId == sid)
                 .FirstOrDefaultAsync(t => t.Id == tid);
 
-            if(removeTest==null)
+            if(removeTest is null)
             {
                 throw new NotFoundException("Not Found");
             }

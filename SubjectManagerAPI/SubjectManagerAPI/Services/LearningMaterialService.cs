@@ -31,8 +31,7 @@ namespace SubjectManagerAPI.Services
         {
             int? userId = _userContextService.GetUserId;
             var learningMaterials = await _context.LearningMaterials
-                .Where(l => l.Subject.UserId == userId)
-                .Where(l => l.SubjectId == sid)
+                .Where(l => l.Subject.UserId == userId && l.SubjectId == sid)
                 .ToListAsync();
             if (learningMaterials.Count == 0)
             {
@@ -47,11 +46,10 @@ namespace SubjectManagerAPI.Services
             int? userId = _userContextService.GetUserId;
 
             var learningMaterial = await _context.LearningMaterials
-                .Where(l => l.Subject.UserId == userId)
-                .Where(l => l.SubjectId == sid)
+                .Where(l => l.Subject.UserId == userId && l.SubjectId == sid)
                 .FirstOrDefaultAsync(l => l.Id == lid);
 
-            if (learningMaterial == null)
+            if (learningMaterial is null)
             {
                 throw new NotFoundException("Not Found");
             }
@@ -67,7 +65,7 @@ namespace SubjectManagerAPI.Services
 
             learningMaterial.SubjectId = sid;
             var subject = await _context.Subjects.FirstOrDefaultAsync(s => s.Id == sid);
-            if (subject == null)
+            if (subject is null)
             {
                 throw new NotFoundException("Not Found");
             }
@@ -86,11 +84,10 @@ namespace SubjectManagerAPI.Services
             int? userId = _userContextService.GetUserId;
 
             var updateLearningMaterial = await _context.LearningMaterials
-                .Where(l => l.Subject.UserId == userId)
-                .Where(l => l.SubjectId == sid)
+                .Where(l => l.Subject.UserId == userId && l.SubjectId == sid)
                 .FirstOrDefaultAsync(l => l.Id == lid);
 
-            if (updateLearningMaterial == null)
+            if (updateLearningMaterial is null)
             {
                 throw new NotFoundException("Not Found");
             }
@@ -106,11 +103,10 @@ namespace SubjectManagerAPI.Services
             int? userId = _userContextService.GetUserId;
 
             var removeLearningMaterial = await _context.LearningMaterials
-                .Where(l => l.Subject.UserId == userId)
-                .Where(l => l.SubjectId == sid)
+                .Where(l => l.Subject.UserId == userId && l.SubjectId == sid)
                 .FirstOrDefaultAsync(l => l.Id == lid);
 
-            if (removeLearningMaterial == null)
+            if (removeLearningMaterial is null)
             {
                 throw new NotFoundException("Not Found");
             }

@@ -49,7 +49,7 @@ namespace SubjectManagerAPI.Services
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
 
-            if(user == null)
+            if(user is null)
             {
                 throw new BadRequestException("Invalid username or password");
             }

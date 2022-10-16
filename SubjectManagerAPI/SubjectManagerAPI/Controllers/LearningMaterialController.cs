@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Web.Http.Cors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SubjectManagerAPI.Models.LearningMaterialDtos;
 using SubjectManagerAPI.Models.TestDtos;
@@ -9,6 +10,7 @@ namespace SubjectManagerAPI.Controllers
     [Route("api/subjects/{sid}/learningMaterials")]
     [ApiController]
     [Authorize]
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     public class LearningMaterialController : ControllerBase
     {
         private readonly ILearningMaterialService _service;

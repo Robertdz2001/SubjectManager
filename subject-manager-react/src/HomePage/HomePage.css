@@ -1,0 +1,13 @@
+.nav-bar{
+    display: inline-flex;
+    justify-content: center;
+    padding: 20px;
+}
+.nav-bar > div{
+    margin: 30px 20px;
+    font-size: 40px;
+}
+.nav-bar :hover{
+    background-color: gray;
+    border-radius: 10%;
+}

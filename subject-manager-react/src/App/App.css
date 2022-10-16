@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.header {
+  display: flex;
+  justify-content: center;
+  background-image:url("https://www.incimages.com/uploaded_files/image/1920x1080/getty_587536358_2000133320009280405_395605.jpg");
+  color:black;
+  height: 300px;
+  font-weight: bold;
+  font-size: 55px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  width: 100%;
+  border-radius: 20%;
+  margin: auto;
+  
+  
+}
+.title{
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+
+}

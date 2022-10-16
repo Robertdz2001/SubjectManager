@@ -11,6 +11,17 @@ using SubjectManagerAPI.Models.Validators;
 using SubjectManagerAPI.Services;
 var builder = WebApplication.CreateBuilder(args);
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+                      });
+});
+
+
 // Add services to the container.
 
 var authenticationSettings = new AuthenticationSettings();
@@ -67,6 +78,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseAuthentication();
 
+app.UseCors(MyAllowSpecificOrigins);
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

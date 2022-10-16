@@ -1,0 +1,41 @@
+.login-page
+{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+.inputs
+{
+    background-color: gray;
+    height: 500px;
+    width: 800px;
+    border-radius: 20%;
+    margin-top:100px ;
+    padding: 100px;
+}
+#email
+{
+    font-size: 30px;
+    border-radius: 10%;
+    text-align: center;
+    margin: 50px 0;
+}
+#password{
+    font-size: 30px;
+    border-radius: 10%;
+    text-align: center;
+    margin: 50px 0;
+}
+.login-title{
+color:white;
+font-size: 50px;
+
+}
+input[type=submit]{
+    font-size: 30px;
+    padding: 30px;
+    border-radius: 20%;
+}
+input[type=submit]:hover{
+    background-color: gray;
+}

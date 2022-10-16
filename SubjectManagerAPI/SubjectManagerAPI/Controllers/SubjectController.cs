@@ -3,12 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using SubjectManagerAPI.Entities;
 using SubjectManagerAPI.Models.SubjectDtos;
 using SubjectManagerAPI.Services;
-
+using System.Web.Http.Cors;
 namespace SubjectManagerAPI.Controllers
 {
     [Route("api/subjects")]
     [ApiController]
     [Authorize]
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     public class SubjectController : ControllerBase
     {
         private readonly ISubjectService _service;

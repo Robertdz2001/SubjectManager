@@ -138,3 +138,9 @@ C:\Users\rober\Desktop\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\obj\De
 C:\Users\rober\Desktop\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\obj\Debug\net6.0\SubjectManagerAPI.csproj.CopyComplete
 C:\Users\rober\Desktop\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\obj\Debug\net6.0\SubjectManagerAPI.genruntimeconfig.cache
 C:\Users\rober\Desktop\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\obj\Debug\net6.0\ref\SubjectManagerAPI.dll
+C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\bin\Debug\net6.0\System.Web.Cors.dll
+C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\bin\Debug\net6.0\System.Web.Http.Cors.dll
+C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\rober\Desktop\github\SubjectManager\SubjectManagerAPI\SubjectManagerAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

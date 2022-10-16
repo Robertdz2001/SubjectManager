@@ -10,6 +10,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import { PlusCircle } from 'react-bootstrap-icons';
 import { useState } from 'react';
 import HomePage from '../HomePage/HomePage';
+import RegisterPage from '../RegisterPage/RegisterPage';
 function App() {
 
   const [token, setToken] = useState("");
@@ -34,7 +35,8 @@ function App() {
           <Routes>
             <Route path={'/'} element={<Navigate to={'/login'} />} />
             <Route path={'/login'} element={<LoginPage changeToken={changeToken} />} />
-            <Route path={'/home'} element={<HomePage token={token} />} />
+            <Route path={'/register'} element={<RegisterPage />} />
+            <Route path={'/home'} element={<HomePage />} />
           </Routes>
         </div>
       </Router>

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import "./HomePage.css";
 
-function HomePage(props) {
+function HomePage() {
     const navigate = useNavigate();
 
     return (

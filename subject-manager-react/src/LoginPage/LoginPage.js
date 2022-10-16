@@ -47,6 +47,8 @@ function LoginPage(props) {
                     </div>
                     <input id="login-button" type="submit" value="Login" />
                 </form >
+
+                <div className="link-to-register"><a href="/register" >Don't have an account? Click here.</a></div>
             </div>
         </div >
 

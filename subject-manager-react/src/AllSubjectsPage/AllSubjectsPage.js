@@ -51,14 +51,12 @@ function AllSubjectsPage(props) {
         <div className="all-subjects-page">
 
 
-
             <div className="all-subjects-searchbar">
                 <SearchBar changeShowedSubjects={changeShowedSubjects} allSubjects={allSubjects} />
             </div>
             <div className="new-subject-button">
                 <Button variant="success" size="lg" onClick={() => { navigate("/subjects/add") }}><PlusCircle />New</Button>
             </div>
-
             <div className="all-subjects-list">
                 <AllSubjectsList showedSubjects={showedSubjects} />
             </div>

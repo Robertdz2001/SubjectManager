@@ -36,7 +36,7 @@ function RegisterPage() {
     return (
         <div className="register-page">
             <div className="inputs">
-                <div className="register-title">Register</div>
+                <div className="register-title  demoFont">Register</div>
                 <form className="register" onSubmit={handleRegister}>
                     <div className="register-inputs">
                         <input id="email-register" type="email" name="email" placeholder="Email" />

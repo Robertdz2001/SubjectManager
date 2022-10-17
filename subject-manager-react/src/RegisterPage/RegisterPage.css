@@ -6,7 +6,7 @@
 }
 .inputs
 {
-    background-color: gray;
+    background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
     height: 500px;
     width: 800px;
     border-radius: 20%;

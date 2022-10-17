@@ -35,7 +35,7 @@ function LoginPage() {
     return (
         <div className="login-page">
             <div className="inputs">
-                <div className="login-title">Login</div>
+                <div className="login-title demoFont" >Login</div>
                 <form onSubmit={handleLogin}>
 
                     <div className="email-input">

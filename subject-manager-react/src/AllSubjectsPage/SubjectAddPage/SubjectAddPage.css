@@ -1,0 +1,29 @@
+.subject-add-inputs > input{
+   width: 300px;
+   font-size: 30px;
+   border-radius: 10%;
+   text-align: center;
+   margin: 20px 0;
+}
+
+.subject-add-inputs{
+    display: inline-block;
+    border-style: solid;
+    width: 500px;
+    /* From https://css.glass */
+    background: rgba(166, 127, 127, 0.16);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.6px);
+    -webkit-backdrop-filter: blur(13.6px);
+    border: 1px solid rgba(166, 127, 127, 1);
+    padding: 20px;
+    margin-top: 20px;
+}
+.subject-add-day{
+    width: 300px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    border-radius: 10%;
+    text-align: center;
+}

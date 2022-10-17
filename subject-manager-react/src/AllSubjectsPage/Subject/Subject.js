@@ -4,8 +4,9 @@ import "./Subject.css";
 import { EyeFill, PenFill, TrashFill } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
+import axios from "axios";
 function Subject(props) {
-
+    const navigate = useNavigate();
     const dayToString = (dayNumber) => {
         switch (dayNumber) {
             case 0:
@@ -24,7 +25,21 @@ function Subject(props) {
                 return "Saturday";
         }
     }
+    const handleDeleteSubject = async () => {
 
+        try {
+            const res = await axios.delete(`https://localhost:7158/api/subjects/${props.subject.id}`, {
+                headers: {
+                    'Authorization': localStorage.getItem("token")
+                }
+            }
+            );
+            window.location.reload(false);
+        }
+        catch (e) {
+            alert(e);
+        }
+    }
     return (
         <tr>
             <td>{props.index}</td>
@@ -37,7 +52,7 @@ function Subject(props) {
             <td className="table-buttons">
                 <Button className="table-button" variant="dark"><EyeFill /></Button>
                 <Button className="table-button" variant="primary"><PenFill /></Button>
-                <Button className="table-button" variant="danger"><TrashFill /></Button>
+                <Button className="table-button" variant="danger" onClick={handleDeleteSubject}><TrashFill /></Button>
             </td>
         </tr>
     );

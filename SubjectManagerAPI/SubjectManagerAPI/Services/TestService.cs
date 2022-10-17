@@ -38,10 +38,7 @@ namespace SubjectManagerAPI.Services
                 .Where(t => t.Subject.UserId == userId)
                 .Include(t => t.Subject)
                 .ToListAsync();
-            if (tests.Count == 0)
-            {
-                throw new NotFoundException("Not Found");
-            }
+           
             var testDtos = _mapper.Map<List<TestWithSubjectDto>>(tests);
             return testDtos;
 
@@ -52,11 +49,7 @@ namespace SubjectManagerAPI.Services
             var tests = await _context.Tests
                 .Where(t => t.Subject.UserId == userId && t.SubjectId == sid)
                 .ToListAsync();
-            if (tests.Count == 0)
-            {
-                throw new NotFoundException("Not Found");
-
-            }
+            
             var testDtos = _mapper.Map<List<TestDto>>(tests);
             return testDtos;
         }

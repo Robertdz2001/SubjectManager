@@ -7,8 +7,8 @@
 .inputs
 {
     background-color: gray;
-    height: 500px;
-    width: 800px;
+    height: 700px !important;
+    width: 1000px !important;
     border-radius: 20%;
     margin-top:100px ;
     padding: 100px;

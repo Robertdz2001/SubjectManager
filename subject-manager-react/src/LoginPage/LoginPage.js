@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginPage(props) {
+function LoginPage() {
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -22,7 +22,7 @@ function LoginPage(props) {
         try {
             const res = await axios.post('https://localhost:7158/api/user/login', user);
 
-            props.changeToken(res.data);
+            localStorage.setItem("token", "Bearer " + res.data);
             navigate("/home");
 
         } catch (e) {

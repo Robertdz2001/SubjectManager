@@ -33,11 +33,7 @@ namespace SubjectManagerAPI.Services
             var learningMaterials = await _context.LearningMaterials
                 .Where(l => l.Subject.UserId == userId && l.SubjectId == sid)
                 .ToListAsync();
-            if (learningMaterials.Count == 0)
-            {
-                throw new NotFoundException("Not Found");
-
-            }
+            
             var learningMaterialDtos = _mapper.Map<List<LearningMaterialDto>>(learningMaterials);
             return learningMaterialDtos;
         }

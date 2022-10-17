@@ -37,10 +37,7 @@ namespace SubjectManagerAPI.Services
                 .Where(s => s.UserId == userId)
                 .ToListAsync();
 
-            if(subjects.Count == 0)
-            {
-                throw new NotFoundException("Not Found");
-            }
+           
             var subjectDtos = _mapper.Map<List<SubjectDto>>(subjects);
             return subjectDtos;
         }
@@ -53,7 +50,7 @@ namespace SubjectManagerAPI.Services
                 .Include(s=>s.Tests)
                 .Include(s=>s.LearningMaterials)
                 .FirstOrDefaultAsync(s => s.Id == sid);
-            if(subject == null)
+            if(subject is null)
             {
                 throw new NotFoundException("Not Found");
             }
@@ -77,7 +74,7 @@ namespace SubjectManagerAPI.Services
             var subjectToUpdate = await _context.Subjects
                 .Where(s => s.UserId == userId)
                 .FirstOrDefaultAsync(s => s.Id == sid);
-            if(subjectToUpdate==null)
+            if(subjectToUpdate is null)
             {
                 throw new NotFoundException("Not Found");
             }
@@ -98,7 +95,7 @@ namespace SubjectManagerAPI.Services
                 .Where(s => s.UserId == userId)
                 .FirstOrDefaultAsync(s => s.Id == sid);
 
-            if(subjectToDelete==null)
+            if(subjectToDelete is null)
             {
                 throw new NotFoundException("Not Found");
             }

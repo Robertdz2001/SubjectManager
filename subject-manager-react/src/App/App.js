@@ -7,17 +7,13 @@ import {
   Navigate,
 } from "react-router-dom";
 import LoginPage from '../LoginPage/LoginPage';
-import { PlusCircle } from 'react-bootstrap-icons';
-import { useState } from 'react';
 import HomePage from '../HomePage/HomePage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import AllSubjectsPage from '../AllSubjectsPage/AllSubjectsPage';
+import SubjectAddPage from '../AllSubjectsPage/SubjectAddPage/SubjectAddPage';
 function App() {
 
-  const [token, setToken] = useState("");
 
-  function changeToken(newToken) {
-    setToken(newToken);
-  }
 
   return (
     <div className='App'>
@@ -34,9 +30,11 @@ function App() {
         <div className='Routes'>
           <Routes>
             <Route path={'/'} element={<Navigate to={'/login'} />} />
-            <Route path={'/login'} element={<LoginPage changeToken={changeToken} />} />
+            <Route path={'/login'} element={<LoginPage />} />
             <Route path={'/register'} element={<RegisterPage />} />
-            <Route path={'/home'} element={<HomePage />} />
+            <Route path={'/home'} element={localStorage.getItem("token") ? <HomePage /> : <Navigate to={'/login'} />} />
+            <Route path={'/subjects'} element={localStorage.getItem("token") ? <AllSubjectsPage /> : <Navigate to={'/login'} />} />
+            <Route path={'/subjects/add'} element={localStorage.getItem("token") ? <SubjectAddPage /> : <Navigate to={'/login'} />} />
           </Routes>
         </div>
       </Router>

@@ -1,0 +1,15 @@
+table.app {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th  {
+  border: 1px solid #000000 !important;
+  text-align: left !important;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

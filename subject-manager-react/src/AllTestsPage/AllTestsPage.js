@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import TestsList from "../TestsList/TestsList";
+import TestsSearchBar from "../TestsSearchBar/TestsSearchBar";
 const getAllTests = async () => {
     const res = await axios.get(
         `https://localhost:7158/api/tests`,
@@ -49,7 +50,7 @@ function AllTestsPage() {
 
 
             <div className="all-searchbar">
-                {/* <SearchBar changeShowedTests={changeShowedTests} allTests={allTests} /> */}
+                <TestsSearchBar changeShowedTests={changeShowedTests} allTests={allTests} />
             </div>
             <div className="all-list">
                 <TestsList showedTests={showedTests} />

@@ -6,7 +6,7 @@ input.search{
     margin-bottom: 10px;
     font-size: 30px;
 }
-#sort-subjects{
+.sort{
     display: inline-block;
     height: 70px;
     width: 500px;
@@ -14,7 +14,7 @@ input.search{
     font-size: 30px;
     margin-bottom: 10px;
 }
-.subjects-search-bar-inputs{
+.search-bar-inputs{
     display: inline-block;
     margin-top: 60px;
     margin-left: 100px;

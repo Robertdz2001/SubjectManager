@@ -38,10 +38,10 @@ function SearchBar(props) {
     return (
         <div className="subjects-search-bar">
             <form action="#" onSubmit={search}>
-                <div className="subjects-search-bar-inputs">
+                <div className="search-bar-inputs">
                     <div className="search-name"> <input className="search" type="text" name="name" placeholder="Search by Name" defaultValue={""} /></div>
                     <div className="search-short-name"> <input className="search" type="text" name="shortName" placeholder="Search by ShortName" defaultValue={""} /></div>
-                    <select className="sort-subjects" name="sortSubjects" id="sort-subjects">
+                    <select className="sort" name="sortSubjects">
                         <option value="">Sort By..</option>
                         <option value="name">Name</option>
                         <option value="shortName">ShortName</option>

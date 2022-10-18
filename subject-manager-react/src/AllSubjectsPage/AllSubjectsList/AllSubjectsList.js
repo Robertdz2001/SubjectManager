@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router";
 import "./AllSubjectsList.css";
 import Subject from "../Subject/Subject";
 function AllSubjectsList(props) {

@@ -41,23 +41,22 @@ function AllSubjectsPage(props) {
     }, []);
 
     const changeShowedSubjects = (searchedSubjects) => {
-        setShowedSubjects(allSubjects);
         setShowedSubjects(searchedSubjects);
     }
 
     if (!showedSubjects) return <div>Loading...</div>;
 
     return (
-        <div className="all-subjects-page">
+        <div className="all-page">
 
 
-            <div className="all-subjects-searchbar">
+            <div className="all-searchbar">
                 <SearchBar changeShowedSubjects={changeShowedSubjects} allSubjects={allSubjects} />
             </div>
-            <div className="new-subject-button">
+            <div className="new-button">
                 <Button variant="success" size="lg" onClick={() => { navigate("/subjects/add") }}><PlusCircle />New</Button>
             </div>
-            <div className="all-subjects-list">
+            <div className="all-list">
                 <AllSubjectsList showedSubjects={showedSubjects} />
             </div>
         </div>

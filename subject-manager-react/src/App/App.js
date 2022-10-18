@@ -11,6 +11,7 @@ import HomePage from '../HomePage/HomePage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AllSubjectsPage from '../AllSubjectsPage/AllSubjectsPage';
 import SubjectAddPage from '../AllSubjectsPage/SubjectAddPage/SubjectAddPage';
+import AllTestsPage from '../AllTestsPage/AllTestsPage';
 function App() {
 
 
@@ -35,6 +36,7 @@ function App() {
             <Route path={'/home'} element={localStorage.getItem("token") ? <HomePage /> : <Navigate to={'/login'} />} />
             <Route path={'/subjects'} element={localStorage.getItem("token") ? <AllSubjectsPage /> : <Navigate to={'/login'} />} />
             <Route path={'/subjects/add'} element={localStorage.getItem("token") ? <SubjectAddPage /> : <Navigate to={'/login'} />} />
+            <Route path={'/tests'} element={localStorage.getItem("token") ? <AllTestsPage /> : <Navigate to={'/login'} />} />
           </Routes>
         </div>
       </Router>

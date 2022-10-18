@@ -1,13 +1,13 @@
-.all-subjects-list{
+.all-list{
     margin: 100px;
 
 }
-.new-subject-button{
+.new-button{
     display:inline-block ;
     margin-top: 20px;
     margin-left: 100px;
 }
-.all-subjects-page{
+.all-page{
     display: flex;
     justify-content: space-between;
     flex-flow:column wrap;

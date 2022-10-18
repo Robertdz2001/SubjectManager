@@ -14,7 +14,7 @@ namespace SubjectManagerAPI.Services
         Task<int> CreateTest(int sid, CreateTestDto dto);
         Task DeleteTest(int sid, int tid);
         Task<IEnumerable<TestDto>> GetAllSubjectTests(int sid);
-        Task<IEnumerable<TestWithSubjectDto>> GetAllUserTests();
+        Task<IEnumerable<TestDto>> GetAllUserTests();
         Task<TestDto> GetById(int tid, int sid);
         Task UpdateTest(int sid, CreateTestDto dto, int tid);
     }
@@ -31,7 +31,7 @@ namespace SubjectManagerAPI.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<TestWithSubjectDto>> GetAllUserTests()
+        public async Task<IEnumerable<TestDto>> GetAllUserTests()
         {
             int? userId = _userContextService.GetUserId;
             var tests = await _context.Tests
@@ -39,7 +39,7 @@ namespace SubjectManagerAPI.Services
                 .Include(t => t.Subject)
                 .ToListAsync();
            
-            var testDtos = _mapper.Map<List<TestWithSubjectDto>>(tests);
+            var testDtos = _mapper.Map<List<TestDto>>(tests);
             return testDtos;
 
         }
@@ -48,6 +48,7 @@ namespace SubjectManagerAPI.Services
             int? userId = _userContextService.GetUserId;
             var tests = await _context.Tests
                 .Where(t => t.Subject.UserId == userId && t.SubjectId == sid)
+                .Include(t => t.Subject)
                 .ToListAsync();
             
             var testDtos = _mapper.Map<List<TestDto>>(tests);
@@ -59,6 +60,7 @@ namespace SubjectManagerAPI.Services
 
             var test = await _context.Tests
                 .Where(t => t.Subject.UserId == userId && t.SubjectId == sid)
+                .Include(t => t.Subject)
                 .FirstOrDefaultAsync(t => t.Id == tid);
 
             if (test is null)

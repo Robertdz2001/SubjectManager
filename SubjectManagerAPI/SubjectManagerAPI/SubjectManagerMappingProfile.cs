@@ -12,7 +12,6 @@ namespace SubjectManagerAPI
         {
             CreateMap<Subject, SubjectDto>();
             CreateMap<Test, TestDto>();
-            CreateMap<Test, TestWithSubjectDto>();
             CreateMap<LearningMaterial, LearningMaterialDto>();
             CreateMap<CreateSubjectDto, Subject>();
             CreateMap<Subject,ShortSubjectDto>();

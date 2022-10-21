@@ -34,7 +34,7 @@ function LoginPage() {
 
     return (
         <div className="login-page">
-            <div className="inputs">
+            <div className="inputs glass-bg">
                 <div className="login-title demoFont" >Login</div>
                 <form onSubmit={handleLogin}>
 

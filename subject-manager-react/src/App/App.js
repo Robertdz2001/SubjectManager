@@ -19,11 +19,11 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='header'>
+      <div className='header glass-bg'>
 
         <div className='title'>
           <div className='title-icon'><Book /></div>
-          <div className='title-text'>Subject Manager</div>
+          <div className='title-text demoFont'>Subject Manager</div>
 
         </div>
 

@@ -35,7 +35,7 @@ function RegisterPage() {
     }
     return (
         <div className="register-page">
-            <div className="inputs">
+            <div className="inputs glass-bg">
                 <div className="register-title  demoFont">Register</div>
                 <form className="register" onSubmit={handleRegister}>
                     <div className="register-inputs">

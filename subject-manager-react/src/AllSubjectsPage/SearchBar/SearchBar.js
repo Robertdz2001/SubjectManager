@@ -20,12 +20,11 @@ function SearchBar(props) {
             case "":
                 return subjects;
             case "name":
-                console.log(subjects.sort((a, b) => a.name > b.name ? 1 : -1));
-                return subjects.sort((a, b) => a.name > b.name ? 1 : -1);
+                return subjects.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
             case "shortName":
-                return subjects.sort((a, b) => a.shortName > b.shortName ? 1 : -1);
+                return subjects.sort((a, b) => a.shortName.toLowerCase() > b.shortName.toLowerCase() ? 1 : -1);
             case "time":
-                return subjects.sort((a, b) => a.time > b.time ? 1 : -1);
+                return subjects.sort((a, b) => a.time.toLowerCase() > b.time.toLowerCase() ? 1 : -1);
             case "roomNumber":
                 return subjects.sort((a, b) => a.roomNumber > b.roomNumber ? 1 : -1);
             case "day":

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./SubjectViewPage.css";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import TestsSearchBar from "../../TestsSearchBar/TestsSearchBar";
 import TestsList from "../../TestsList/TestsList";
+import { PlusCircle } from 'react-bootstrap-icons';
 const getOneSubject = async (id) => {
 
     try {
@@ -57,6 +58,7 @@ const getMaterials = async (id) => {
 
 function SubjectViewPage(props) {
 
+    const navigate = useNavigate();
     const [subject, setSubject] = useState(false);
     const { id } = useParams();
     const [tests, setTests] = useState(false);
@@ -88,10 +90,16 @@ function SubjectViewPage(props) {
                 <p>Day: {subject.dayOfWeek}</p>
                 <p>Time: {subject.time}</p>
             </div>
-            <Button variant="primary" onClick={() => { document.getElementById("tests").style.display = "block"; document.getElementById("learning-materials").style.display = "none"; }}>Tests</Button>
-            <Button variant="primary" onClick={() => { document.getElementById("tests").style.display = "none"; document.getElementById("learning-materials").style.display = "block"; }}>Learning Materials</Button>
-
-            <div id="tests"><TestsList showedTests={tests} /></div>
+            <div className="nav-buttons">
+                <Button variant="primary" size="lg" onClick={() => { document.getElementById("tests").style.display = "inline-block"; document.getElementById("learning-materials").style.display = "none"; }}>Tests</Button>
+                <Button variant="primary" size="lg" onClick={() => { document.getElementById("tests").style.display = "none"; document.getElementById("learning-materials").style.display = "flex"; }}>Learning Materials</Button>
+            </div>
+            <div id="tests">
+                <div className="new-test-button">
+                    <Button variant="success" size="lg" onClick={() => { navigate(`/subjects/${subject.id}/tests/add`) }}><PlusCircle />New</Button>
+                </div>
+                <TestsList showedTests={tests} />
+            </div>
             <div id="learning-materials">{materials[0].name}</div>
         </div>
     );

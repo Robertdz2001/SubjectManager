@@ -19,9 +19,9 @@ function TestsSearchBar(props) {
             case "":
                 return tests;
             case "name":
-                return tests.sort((a, b) => a.name > b.name ? 1 : -1);
+                return tests.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
             case "date":
-                return tests.sort((a, b) => a.date > b.date ? 1 : -1);
+                return tests.sort((a, b) => a.date.toLowerCase() > b.date.toLowerCase() ? 1 : -1);
         }
 
 

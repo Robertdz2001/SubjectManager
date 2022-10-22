@@ -12,6 +12,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import AllSubjectsPage from '../AllSubjectsPage/AllSubjectsPage';
 import SubjectAddPage from '../AllSubjectsPage/SubjectAddPage/SubjectAddPage';
 import SubjectUpdatePage from '../AllSubjectsPage/SubjectUpdatePage/SubjectUpdatePage';
+import SubjectViewPage from '../AllSubjectsPage/SubjectViewPage/SubjectViewPage';
 import AllTestsPage from '../AllTestsPage/AllTestsPage';
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
             <Route path={'/subjects'} element={localStorage.getItem("token") ? <AllSubjectsPage /> : <Navigate to={'/login'} />} />
             <Route path={'/subjects/add'} element={localStorage.getItem("token") ? <SubjectAddPage /> : <Navigate to={'/login'} />} />
             <Route path={'/subjects/update/:id'} element={localStorage.getItem("token") ? <SubjectUpdatePage /> : <Navigate to={'/login'} />} />
+            <Route path={'/subjects/view/:id'} element={localStorage.getItem("token") ? <SubjectViewPage /> : <Navigate to={'/login'} />} />
             <Route path={'/tests'} element={localStorage.getItem("token") ? <AllTestsPage /> : <Navigate to={'/login'} />} />
           </Routes>
         </div>

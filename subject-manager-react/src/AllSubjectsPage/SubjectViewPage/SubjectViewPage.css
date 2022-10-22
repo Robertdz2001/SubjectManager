@@ -1,0 +1,18 @@
+.subject-info
+{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction:column ;
+    height: 350px;
+    width: 800px;
+    text-align: left;
+}
+.subject-view-page{
+    display: inline-block;
+}
+#tests{
+    display: none;
+}
+#learning-materials{
+    display: none;
+}

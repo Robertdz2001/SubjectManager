@@ -50,7 +50,7 @@ function Subject(props) {
             <td>{dayToString(props.subject.dayOfWeek)}</td>
             <td>{props.subject.time}</td>
             <td className="table-buttons">
-                <Button className="table-button" variant="dark"><EyeFill /></Button>
+                <Button className="table-button" variant="dark" onClick={() => { navigate(`/subjects/view/${props.subject.id}`) }}><EyeFill /></Button>
                 <Button className="table-button" variant="primary" onClick={() => { navigate(`/subjects/update/${props.subject.id}`) }}><PenFill /></Button>
                 <Button className="table-button" variant="danger" onClick={handleDeleteSubject}><TrashFill /></Button>
             </td>

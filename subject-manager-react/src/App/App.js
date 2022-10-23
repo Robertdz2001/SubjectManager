@@ -17,6 +17,9 @@ import AllTestsPage from '../AllTestsPage/AllTestsPage';
 import TestAddPage from '../TestAddPage/TestAddPage';
 import TestViewPage from '../TestViewPage/TestViewPage';
 import TestUpdatePage from '../TestUpdatePage/TestUpdatePage';
+import MaterialAddPage from '../MaterialAddPage/MaterialAddPage';
+import MaterialViewPage from '../MaterialViewPage/MaterialViewPage';
+import MaterialUpdatePage from '../MaterialUpdatePage/MaterialUpdatePage';
 function App() {
 
 
@@ -47,6 +50,9 @@ function App() {
             <Route path={'/tests'} element={localStorage.getItem("token") ? <AllTestsPage /> : <Navigate to={'/login'} />} />
             <Route path={'/subjects/:sid/tests/:tid/view'} element={localStorage.getItem("token") ? <TestViewPage /> : <Navigate to={'/login'} />} />
             <Route path={'/subjects/:sid/tests/:tid/update'} element={localStorage.getItem("token") ? <TestUpdatePage /> : <Navigate to={'/login'} />} />
+            <Route path={'/subjects/:id/materials/add'} element={localStorage.getItem("token") ? <MaterialAddPage /> : <Navigate to={'/login'} />} />
+            <Route path={'/subjects/:sid/materials/:lid/view'} element={localStorage.getItem("token") ? <MaterialViewPage /> : <Navigate to={'/login'} />} />
+            <Route path={'/subjects/:sid/materials/:lid/update'} element={localStorage.getItem("token") ? <MaterialUpdatePage /> : <Navigate to={'/login'} />} />
           </Routes>
         </div>
       </Router>

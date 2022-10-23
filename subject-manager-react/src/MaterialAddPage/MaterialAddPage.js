@@ -1,25 +1,24 @@
 import React from "react";
-import "./TestAddPage.css";
+import "./MaterialAddPage.css";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
 
-function TestAddPage() {
+function MaterialAddPage() {
 
     const { id } = useParams();
     const navigate = useNavigate();
 
     const handleCreate = async (e) => {
-        const newTest = {
+        const newMaterial = {
             name: e.target.name.value,
-            date: e.target.date.value,
-            description: e.target.description.value
+            source: e.target.source.value,
         }
         e.preventDefault();
 
         try {
-            const res = await axios.post(`https://localhost:7158/api/subjects/${id}/tests`, newTest, {
+            const res = await axios.post(`https://localhost:7158/api/subjects/${id}/learningMaterials`, newMaterial, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }
@@ -36,10 +35,7 @@ function TestAddPage() {
             <form action="#" onSubmit={handleCreate}>
                 <div className="add-inputs">
                     <input type="text" name="name" placeholder="Name" maxLength={30} required />
-                    <input type="date" name="date" placeholder="Date" required />
-                    <div>
-                        <textarea id="test-desc" name="description" placeholder="Description"></textarea>
-                    </div>
+                    <input type="url" name="source" placeholder="Source" required />
                     <div className="add-buttons">
                         <Button id="add-button" variant="primary" type="submit" size="lg">Create</Button>
                         <Button id="add-button" variant="dark" size="lg" onClick={() => { navigate(`/subjects/${id}/view`) }}>Back</Button>
@@ -52,4 +48,4 @@ function TestAddPage() {
     );
 }
 
-export default TestAddPage;
+export default MaterialAddPage;

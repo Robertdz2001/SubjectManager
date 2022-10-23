@@ -6,6 +6,8 @@ import axios from "axios";
 import { useState } from "react";
 import TestsList from "../TestsList/TestsList";
 import TestsSearchBar from "../TestsSearchBar/TestsSearchBar";
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.css';
 const getAllTests = async () => {
     const res = await axios.get(
         `https://localhost:7158/api/tests`,
@@ -51,6 +53,7 @@ function AllTestsPage() {
 
             <div className="all-searchbar">
                 <TestsSearchBar changeShowedTests={changeShowedTests} allTests={allTests} />
+                <div className="back-button"><Button id="add-button" variant="dark" size="lg" onClick={() => { navigate(`/home`) }}>Back</Button></div>
             </div>
             <div className="all-list">
                 <TestsList showedTests={showedTests} />

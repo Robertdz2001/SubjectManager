@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import "./TestViewPage.css";
 import axios from "axios";
-import { formatDate } from "../Test/Test";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
-
-const getOneTest = async (sid, tid) => {
+const getOneMaterial = async (sid, lid) => {
 
     try {
-        const res = await axios.get(`https://localhost:7158/api/subjects/${sid}/tests/${tid}`, {
+        const res = await axios.get(`https://localhost:7158/api/subjects/${sid}/learningMaterials/${lid}`, {
             headers: {
                 'Authorization': localStorage.getItem("token")
             }
@@ -24,31 +21,28 @@ const getOneTest = async (sid, tid) => {
 }
 
 
-function TestViewPage() {
+function MaterialViewPage() {
 
-    const { sid, tid } = useParams();
-    const [test, setTest] = useState(false);
+    const { sid, lid } = useParams();
+    const [material, setMaterial] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         async function getOne() {
-            const one = await getOneTest(sid, tid);
-            setTest(one);
+            const one = await getOneMaterial(sid, lid);
+            setMaterial(one);
         }
         getOne()
     }, []);
 
-    if (!test) return <div>Loading...</div>;
+    if (!material) return <div>Loading...</div>;
 
 
     return (
         <div className="view-page glass-bg">
-            <p>Name: {test.name}</p>
-            <p>Date: {formatDate(test.date)}</p>
-            <div className="test-desc"> Decription: {test.description}</div>
+            <p>Name: {material.name}</p>
+            <p>Source: <a href={material.source}>{material.source}</a></p>
             <Button id="add-button" variant="dark" size="lg" onClick={() => { navigate(`/subjects/${sid}/view`) }}>Back</Button>
-
-
         </div>
 
 
@@ -57,4 +51,4 @@ function TestViewPage() {
 
 }
 
-export default TestViewPage;
+export default MaterialViewPage;

@@ -6,22 +6,21 @@ import axios from "axios";
 import { useEffect } from "react";
 
 
-function TestUpdatePage(props) {
-    const { sid, tid } = useParams();
+function MaterialUpdatePage(props) {
+    const { sid, lid } = useParams();
     const navigate = useNavigate();
-    const [test, setTest] = useState(false);
+    const [material, setMaterial] = useState(false);
 
 
-    const handleUpdateTest = async (e) => {
+    const handleUpdateMaterial = async (e) => {
         navigate(`/subjects/${sid}/view`);
-        const updatedTest = {
+        const updatedMaterial = {
             name: e.target.name.value,
-            date: e.target.date.value,
-            description: e.target.description.value
+            source: e.target.source.value,
         }
 
         try {
-            const res = await axios.put(`https://localhost:7158/api/subjects/${sid}/tests/${tid}`, updatedTest, {
+            const res = await axios.put(`https://localhost:7158/api/subjects/${sid}/learningMaterials/${lid}`, updatedMaterial, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }
@@ -33,10 +32,10 @@ function TestUpdatePage(props) {
 
     }
 
-    const getOneTest = async () => {
+    const getOneMaterial = async () => {
 
         try {
-            const res = await axios.get(`https://localhost:7158/api/subjects/${sid}/tests/${tid}`,
+            const res = await axios.get(`https://localhost:7158/api/subjects/${sid}/learningMaterials/${lid}`,
                 {
                     headers: {
                         'Authorization': localStorage.getItem("token")
@@ -52,25 +51,22 @@ function TestUpdatePage(props) {
     useEffect(() => {
         async function getOne() {
 
-            const one = await getOneTest();
-            setTest(one);
+            const one = await getOneMaterial();
+            setMaterial(one);
         }
         getOne()
 
     }, []);
 
-    if (!test) return <div>Loading...</div>;
+    if (!material) return <div>Loading...</div>;
 
     return (
 
         <div className="add-page">
-            <form action="#" onSubmit={handleUpdateTest}>
+            <form action="#" onSubmit={handleUpdateMaterial}>
                 <div className="add-inputs">
-                    <input type="text" name="name" placeholder="Name" maxLength={30} required defaultValue={test.name} />
-                    <input type="date" name="date" placeholder="Date" required />
-                    <div>
-                        <textarea id="test-desc" name="description" placeholder="Description" defaultValue={test.description}></textarea>
-                    </div>
+                    <input type="text" name="name" placeholder="Name" maxLength={30} required defaultValue={material.name} />
+                    <input type="url" name="source" placeholder="Source" required defaultValue={material.source} />
                     <div className="add-buttons">
                         <Button variant="primary" type="submit" size="lg">Update</Button>
                         <Button variant="dark" size="lg" onClick={() => { navigate(`/subjects/${sid}/view`) }}>Back</Button>
@@ -83,4 +79,4 @@ function TestUpdatePage(props) {
     );
 }
 
-export default TestUpdatePage;
+export default MaterialUpdatePage;

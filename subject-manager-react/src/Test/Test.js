@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import "./Test.css";
 import { EyeFill, PenFill, TrashFill } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';

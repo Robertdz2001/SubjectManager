@@ -1,5 +1,4 @@
 import React from "react";
-import "./TestsList.css";
 import Test from "../Test/Test";
 function AllTestsList(props) {
     return (

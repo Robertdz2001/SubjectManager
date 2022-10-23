@@ -10,13 +10,15 @@
 .subject-view-page{
     display: inline-block;
 }
-#tests{
+.tests{
     display: none;
     justify-content: left;
     align-items: flex-start;
 }
 #learning-materials{
     display: none;
+    justify-content: left;
+    align-items: flex-start;
 }
 .nav-buttons{
     margin-top: 20px;
@@ -26,6 +28,10 @@
     margin: 0 10px;
 }
 .new-test-button{
+    float: left;
+    margin-bottom: 30px;
+}
+.new-subject-button{
     float: left;
     margin-bottom: 30px;
 }

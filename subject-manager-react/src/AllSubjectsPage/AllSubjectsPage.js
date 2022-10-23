@@ -55,7 +55,9 @@ function AllSubjectsPage(props) {
             </div>
             <div className="new-button">
                 <Button variant="success" size="lg" onClick={() => { navigate("/subjects/add") }}><PlusCircle />New</Button>
+                <Button id="add-button" variant="dark" size="lg" onClick={() => { navigate(`/home`) }}>Back</Button>
             </div>
+
             <div className="all-list">
                 <AllSubjectsList showedSubjects={showedSubjects} />
             </div>

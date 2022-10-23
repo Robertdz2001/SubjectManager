@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import TestsList from "../../TestsList/TestsList";
 import { PlusCircle } from 'react-bootstrap-icons';
 import { dayToString } from "../Subject/Subject";
+import MaterialsList from "../../MaterialsList/MaterialsList";
 const getOneSubject = async (id) => {
 
     try {
@@ -78,7 +79,7 @@ function SubjectViewPage(props) {
     }, []);
 
 
-    if (!subject || !tests) return <div>Loading...</div>;
+    if (!subject || !tests || !materials) return <div>Loading...</div>;
 
     return (
         <div className="subject-view-page">
@@ -92,7 +93,8 @@ function SubjectViewPage(props) {
             </div>
             <div className="nav-buttons">
                 <Button variant="primary" size="lg" onClick={() => { document.getElementById("tests").style.display = "inline-block"; document.getElementById("learning-materials").style.display = "none"; }}>Tests</Button>
-                <Button variant="primary" size="lg" onClick={() => { document.getElementById("tests").style.display = "none"; document.getElementById("learning-materials").style.display = "flex"; }}>Learning Materials</Button>
+                <Button variant="primary" size="lg" onClick={() => { document.getElementById("tests").style.display = "none"; document.getElementById("learning-materials").style.display = "inline-block"; }}>Learning Materials</Button>
+                <Button id="add-button" variant="dark" size="lg" onClick={() => { navigate(`/subjects`) }}>Back</Button>
             </div>
             <div id="tests">
                 <div className="new-test-button">
@@ -100,7 +102,12 @@ function SubjectViewPage(props) {
                 </div>
                 <TestsList showedTests={tests} />
             </div>
-            <div id="learning-materials">{materials[0].name}</div>
+            <div id="learning-materials">
+                <div className="new-subject-button">
+                    <Button variant="success" size="lg" onClick={() => { navigate(`/subjects/${subject.id}/materials/add`) }}><PlusCircle />New</Button>
+                </div>
+                <MaterialsList materials={materials} sid={subject.id} />
+            </div>
         </div>
     );
 }

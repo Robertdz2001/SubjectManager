@@ -20,7 +20,6 @@ function SubjectUpdatePage(props) {
             shortName: e.target.shortName.value,
             roomNumber: e.target.roomNumber.value,
             time: e.target.time.value,
-            name: e.target.name.value,
             platformUrl: e.target.platformUrl.value,
             dayOfWeek: Number(e.target.dayOfWeek.value),
         }
@@ -68,15 +67,15 @@ function SubjectUpdatePage(props) {
 
     return (
 
-        <div className="subject-add-page">
+        <div className="add-page">
             <form action="#" onSubmit={handleUpdateSubject}>
-                <div className="subject-add-inputs">
+                <div className="add-inputs">
                     <input id="subject-add-name" type="text" name="name" placeholder="Name" maxLength={50} defaultValue={subject.name} required />
                     <input id="subject-add-short-name" type="text" name="shortName" placeholder="ShortName" maxLength={10} defaultValue={subject.shortName} required />
                     <input id="subject-add-room-number" type="number" name="roomNumber" placeholder="Room Number" defaultValue={subject.roomNumber} required />
                     <input id="subject-add-time" type="time" name="time" placeholder="Time" defaultValue={subject.time} required />
                     <input id="subject-add-platform-url" type="url" name="platformUrl" placeholder="Platform Url" defaultValue={subject.platformUrl} required />
-                    <select className="subject-add-day" name="dayOfWeek" required>
+                    <select className="add-day" name="dayOfWeek" required>
                         <option value="">Day Of Week</option>
                         <option value="1">Monday</option>
                         <option value="2">Tuesday</option>
@@ -86,7 +85,7 @@ function SubjectUpdatePage(props) {
                         <option value="6">Saturday</option>
                         <option value="0">Sunday</option>
                     </select>
-                    <div className="subject-add-buttons">
+                    <div className="add-buttons">
                         <Button id="subject-add-button" variant="primary" type="submit" size="lg" >Update</Button>
                         <Button id="subject-add-button" variant="dark" size="lg" onClick={() => { navigate("/subjects") }}>Back</Button>
                     </div>

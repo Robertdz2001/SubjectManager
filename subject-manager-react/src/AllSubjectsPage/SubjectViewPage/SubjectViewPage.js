@@ -4,9 +4,9 @@ import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
-import TestsSearchBar from "../../TestsSearchBar/TestsSearchBar";
 import TestsList from "../../TestsList/TestsList";
 import { PlusCircle } from 'react-bootstrap-icons';
+import { dayToString } from "../Subject/Subject";
 const getOneSubject = async (id) => {
 
     try {
@@ -87,7 +87,7 @@ function SubjectViewPage(props) {
                 <p>ShortName: {subject.shortName}</p>
                 <p>Platform Url: <a href={subject.platformUrl}>{subject.platformUrl}</a></p>
                 <p>Room Number: {subject.roomNumber}</p>
-                <p>Day: {subject.dayOfWeek}</p>
+                <p>Day: {dayToString(subject.dayOfWeek)}</p>
                 <p>Time: {subject.time}</p>
             </div>
             <div className="nav-buttons">

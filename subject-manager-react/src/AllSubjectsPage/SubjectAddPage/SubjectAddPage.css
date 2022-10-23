@@ -1,4 +1,4 @@
-.subject-add-inputs > input{
+.add-inputs > input{
    width: 300px;
    font-size: 30px;
    border-radius: 10%;
@@ -6,7 +6,7 @@
    margin: 20px 0;
 }
 
-.subject-add-inputs{
+.add-inputs{
     display: inline-block;
     width: 500px;
     /* From https://css.glass */
@@ -19,7 +19,7 @@
     padding: 20px;
     margin-top: 20px;
 }
-.subject-add-day{
+.add-day{
     width: 300px;
     font-size: 30px;
     margin-bottom: 20px;

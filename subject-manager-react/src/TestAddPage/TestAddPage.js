@@ -24,7 +24,7 @@ function TestAddPage() {
                     'Authorization': localStorage.getItem("token")
                 }
             });
-            navigate(`/subjects/view/${id}`);
+            navigate(`/subjects/${id}/view`);
         }
         catch (e) {
             alert(e);
@@ -32,17 +32,17 @@ function TestAddPage() {
     }
 
     return (
-        <div className="subject-add-page">
+        <div className="add-page">
             <form action="#" onSubmit={handleCreate}>
-                <div className="subject-add-inputs">
+                <div className="add-inputs">
                     <input type="text" name="name" placeholder="Name" maxLength={50} required />
                     <input type="date" name="date" placeholder="Date" required />
                     <div>
                         <textarea id="test-desc" name="description" placeholder="Description"></textarea>
                     </div>
-                    <div className="subject-add-buttons">
-                        <Button id="subject-add-button" variant="primary" type="submit" size="lg">Create</Button>
-                        <Button id="subject-add-button" variant="dark" size="lg" onClick={() => { navigate(`/subjects/view/${id}`) }}>Back</Button>
+                    <div className="add-buttons">
+                        <Button id="add-button" variant="primary" type="submit" size="lg">Create</Button>
+                        <Button id="add-button" variant="dark" size="lg" onClick={() => { navigate(`/subjects/${id}/view`) }}>Back</Button>
                     </div>
                 </div>
             </form>

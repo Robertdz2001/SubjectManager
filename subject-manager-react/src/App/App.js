@@ -15,6 +15,8 @@ import SubjectUpdatePage from '../AllSubjectsPage/SubjectUpdatePage/SubjectUpdat
 import SubjectViewPage from '../AllSubjectsPage/SubjectViewPage/SubjectViewPage';
 import AllTestsPage from '../AllTestsPage/AllTestsPage';
 import TestAddPage from '../TestAddPage/TestAddPage';
+import TestViewPage from '../TestViewPage/TestViewPage';
+import TestUpdatePage from '../TestUpdatePage/TestUpdatePage';
 function App() {
 
 
@@ -39,10 +41,12 @@ function App() {
             <Route path={'/home'} element={localStorage.getItem("token") ? <HomePage /> : <Navigate to={'/login'} />} />
             <Route path={'/subjects'} element={localStorage.getItem("token") ? <AllSubjectsPage /> : <Navigate to={'/login'} />} />
             <Route path={'/subjects/add'} element={localStorage.getItem("token") ? <SubjectAddPage /> : <Navigate to={'/login'} />} />
-            <Route path={'/subjects/update/:id'} element={localStorage.getItem("token") ? <SubjectUpdatePage /> : <Navigate to={'/login'} />} />
-            <Route path={'/subjects/view/:id'} element={localStorage.getItem("token") ? <SubjectViewPage /> : <Navigate to={'/login'} />} />
+            <Route path={'/subjects/:id/update'} element={localStorage.getItem("token") ? <SubjectUpdatePage /> : <Navigate to={'/login'} />} />
+            <Route path={'/subjects/:id/view'} element={localStorage.getItem("token") ? <SubjectViewPage /> : <Navigate to={'/login'} />} />
             <Route path={'/subjects/:id/tests/add'} element={localStorage.getItem("token") ? <TestAddPage /> : <Navigate to={'/login'} />} />
             <Route path={'/tests'} element={localStorage.getItem("token") ? <AllTestsPage /> : <Navigate to={'/login'} />} />
+            <Route path={'/subjects/:sid/tests/:tid/view'} element={localStorage.getItem("token") ? <TestViewPage /> : <Navigate to={'/login'} />} />
+            <Route path={'/subjects/:sid/tests/:tid/update'} element={localStorage.getItem("token") ? <TestUpdatePage /> : <Navigate to={'/login'} />} />
           </Routes>
         </div>
       </Router>

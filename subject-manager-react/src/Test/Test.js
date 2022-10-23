@@ -5,14 +5,14 @@ import { EyeFill, PenFill, TrashFill } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
-
+export const formatDate = (date) => {
+    const formattedDate = date.replace('T', ' ').slice(0, 19);
+    return formattedDate;
+}
 function Test(props) {
 
     const navigate = useNavigate();
-    const formatDate = (date) => {
-        const formattedDate = date.replace('T', ' ').slice(0, 19);
-        return formattedDate;
-    }
+
     const handleDelete = async () => {
         try {
             const res = await axios.delete(`https://localhost:7158/api/subjects/${props.test.subject.id}/tests/${props.test.id}`, {
@@ -33,8 +33,8 @@ function Test(props) {
             <td>{props.test.name}</td>
             <td>{formatDate(props.test.date)}</td>
             <td className="table-buttons">
-                <Button className="table-button" variant="dark"><EyeFill /></Button>
-                <Button className="table-button" variant="primary" onClick={() => { console.log(props.test); navigate(`/subjects/${props.test.subject.id}/tests/${props.test.id}`) }}><PenFill /></Button>
+                <Button className="table-button" variant="dark" onClick={() => { navigate(`/subjects/${props.test.subject.id}/tests/${props.test.id}/view`) }}><EyeFill /></Button>
+                <Button className="table-button" variant="primary" onClick={() => { navigate(`/subjects/${props.test.subject.id}/tests/${props.test.id}/update`) }}><PenFill /></Button>
                 <Button className="table-button" variant="danger" onClick={handleDelete}><TrashFill /></Button>
             </td>
         </tr>

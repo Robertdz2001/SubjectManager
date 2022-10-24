@@ -20,7 +20,7 @@ function MaterialUpdatePage(props) {
         }
 
         try {
-            const res = await axios.put(`https://localhost:7158/api/subjects/${sid}/learningMaterials/${lid}`, updatedMaterial, {
+            const res = await axios.put(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${sid}/learningMaterials/${lid}`, updatedMaterial, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }
@@ -35,7 +35,7 @@ function MaterialUpdatePage(props) {
     const getOneMaterial = async () => {
 
         try {
-            const res = await axios.get(`https://localhost:7158/api/subjects/${sid}/learningMaterials/${lid}`,
+            const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${sid}/learningMaterials/${lid}`,
                 {
                     headers: {
                         'Authorization': localStorage.getItem("token")

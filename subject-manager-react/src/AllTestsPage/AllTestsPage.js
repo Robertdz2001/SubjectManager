@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 const getAllTests = async () => {
     const res = await axios.get(
-        `https://localhost:7158/api/tests`,
+        `https://subjectmanager-api-app.azurewebsites.net/api/tests`,
         {
             headers: {
                 'Authorization': localStorage.getItem("token")

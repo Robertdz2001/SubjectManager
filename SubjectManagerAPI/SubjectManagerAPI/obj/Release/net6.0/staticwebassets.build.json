@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "seL9A6RfUTaBtsZlvjie2xvKbt5v+8TETW2A7d1sWkg=",
+  "Source": "SubjectManagerAPI",
+  "BasePath": "_content/SubjectManagerAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

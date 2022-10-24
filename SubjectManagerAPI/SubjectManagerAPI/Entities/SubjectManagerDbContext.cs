@@ -5,8 +5,10 @@ namespace SubjectManagerAPI.Entities
 {
     public class SubjectManagerDbContext : DbContext
     {
-        private string _connectionString =
-             "Server=localhost\\SQLEXPRESS;Database=SubjectManagerDb;Trusted_Connection=True;";
+        public SubjectManagerDbContext(DbContextOptions<SubjectManagerDbContext> options) : base(options)
+        {
+
+        }
         public DbSet<User> Users { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Test> Tests { get; set; }
@@ -43,9 +45,6 @@ namespace SubjectManagerAPI.Entities
                 .IsRequired();
 
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(_connectionString);
-        }
+      
     }
 }

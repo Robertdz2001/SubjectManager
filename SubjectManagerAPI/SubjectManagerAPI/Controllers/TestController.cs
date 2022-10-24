@@ -9,7 +9,7 @@ namespace SubjectManagerAPI.Controllers
     [Route("api/subjects/{sid}/tests")]
     [ApiController]
     [Authorize]
-    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TestController : ControllerBase
     {
         private readonly ITestService _service;

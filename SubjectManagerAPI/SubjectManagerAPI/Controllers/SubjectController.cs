@@ -9,7 +9,7 @@ namespace SubjectManagerAPI.Controllers
     [Route("api/subjects")]
     [ApiController]
     [Authorize]
-    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class SubjectController : ControllerBase
     {
         private readonly ISubjectService _service;

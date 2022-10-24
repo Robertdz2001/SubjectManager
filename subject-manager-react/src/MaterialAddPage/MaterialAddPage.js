@@ -18,7 +18,7 @@ function MaterialAddPage() {
         e.preventDefault();
 
         try {
-            const res = await axios.post(`https://localhost:7158/api/subjects/${id}/learningMaterials`, newMaterial, {
+            const res = await axios.post(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}/learningMaterials`, newMaterial, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }

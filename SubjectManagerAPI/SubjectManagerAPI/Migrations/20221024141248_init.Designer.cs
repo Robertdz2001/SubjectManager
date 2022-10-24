@@ -12,8 +12,8 @@ using SubjectManagerAPI.Entities;
 namespace SubjectManagerAPI.Migrations
 {
     [DbContext(typeof(SubjectManagerDbContext))]
-    [Migration("20221008145155_changes")]
-    partial class changes
+    [Migration("20221024141248_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

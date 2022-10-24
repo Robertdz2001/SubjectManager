@@ -25,7 +25,7 @@ function SubjectUpdatePage(props) {
         }
 
         try {
-            const res = await axios.put(`https://localhost:7158/api/subjects/${id}`, updatedSubject, {
+            const res = await axios.put(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}`, updatedSubject, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }
@@ -40,7 +40,7 @@ function SubjectUpdatePage(props) {
     const getOneSubject = async () => {
 
         try {
-            const res = await axios.get(`https://localhost:7158/api/subjects/${id}`,
+            const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}`,
                 {
                     headers: {
                         'Authorization': localStorage.getItem("token")

@@ -23,7 +23,7 @@ function SubjectAddPage(props) {
         console.log(newSubject);
         e.preventDefault();
         try {
-            const resp = await axios.post(`https://localhost:7158/api/subjects`, newSubject,
+            const resp = await axios.post(`https://subjectmanager-api-app.azurewebsites.net/api/subjects`, newSubject,
                 {
                     headers: {
                         'Authorization': localStorage.getItem("token")

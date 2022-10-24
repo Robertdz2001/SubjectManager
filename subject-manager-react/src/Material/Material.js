@@ -22,7 +22,7 @@ function Material(props) {
 
     const handleDelete = async () => {
         try {
-            const res = await axios.delete(`https://localhost:7158/api/subjects/${props.sid}/learningMaterials/${props.material.id}`, {
+            const res = await axios.delete(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${props.sid}/learningMaterials/${props.material.id}`, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }

@@ -11,7 +11,7 @@ import MaterialsList from "../../MaterialsList/MaterialsList";
 const getOneSubject = async (id) => {
 
     try {
-        const res = await axios.get(`https://localhost:7158/api/subjects/${id}`, {
+        const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}`, {
             headers: {
                 'Authorization': localStorage.getItem("token")
             }
@@ -27,7 +27,7 @@ const getOneSubject = async (id) => {
 const getTests = async (id) => {
 
     try {
-        const res = await axios.get(`https://localhost:7158/api/subjects/${id}/tests`, {
+        const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}/tests`, {
             headers: {
                 'Authorization': localStorage.getItem("token")
             }
@@ -43,7 +43,7 @@ const getTests = async (id) => {
 const getMaterials = async (id) => {
 
     try {
-        const res = await axios.get(`https://localhost:7158/api/subjects/${id}/learningMaterials`, {
+        const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}/learningMaterials`, {
             headers: {
                 'Authorization': localStorage.getItem("token")
             }

@@ -9,7 +9,7 @@ import { PlusCircle } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';
 const getAllSubjects = async () => {
     const res = await axios.get(
-        `https://localhost:7158/api/subjects`,
+        `https://subjectmanager-api-app.azurewebsites.net/api/subjects`,
         {
             headers: {
                 'Authorization': localStorage.getItem("token")

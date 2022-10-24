@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 const getOneTest = async (sid, tid) => {
 
     try {
-        const res = await axios.get(`https://localhost:7158/api/subjects/${sid}/tests/${tid}`, {
+        const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${sid}/tests/${tid}`, {
             headers: {
                 'Authorization': localStorage.getItem("token")
             }

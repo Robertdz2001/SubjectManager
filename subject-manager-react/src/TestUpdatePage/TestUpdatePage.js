@@ -21,7 +21,7 @@ function TestUpdatePage(props) {
         }
 
         try {
-            const res = await axios.put(`https://localhost:7158/api/subjects/${sid}/tests/${tid}`, updatedTest, {
+            const res = await axios.put(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${sid}/tests/${tid}`, updatedTest, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }
@@ -36,7 +36,7 @@ function TestUpdatePage(props) {
     const getOneTest = async () => {
 
         try {
-            const res = await axios.get(`https://localhost:7158/api/subjects/${sid}/tests/${tid}`,
+            const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${sid}/tests/${tid}`,
                 {
                     headers: {
                         'Authorization': localStorage.getItem("token")

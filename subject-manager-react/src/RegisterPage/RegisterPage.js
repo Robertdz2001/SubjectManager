@@ -16,7 +16,7 @@ function RegisterPage() {
         console.log(user);
         e.preventDefault()
         try {
-            const res = await axios.post('https://localhost:7158/api/user/register', user);
+            const res = await axios.post('https://subjectmanager-api-app.azurewebsites.net/api/user/register', user);
             if (res) {
                 console.log(res);
                 alert('Registered successfully.');

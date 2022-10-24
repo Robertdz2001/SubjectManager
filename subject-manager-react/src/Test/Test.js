@@ -14,7 +14,7 @@ function Test(props) {
 
     const handleDelete = async () => {
         try {
-            const res = await axios.delete(`https://localhost:7158/api/subjects/${props.test.subject.id}/tests/${props.test.id}`, {
+            const res = await axios.delete(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${props.test.subject.id}/tests/${props.test.id}`, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }

@@ -20,7 +20,7 @@ function LoginPage() {
         }
         e.preventDefault()
         try {
-            const res = await axios.post('https://localhost:7158/api/user/login', user);
+            const res = await axios.post('https://subjectmanager-api-app.azurewebsites.net/api/user/login', user);
 
             localStorage.setItem("token", "Bearer " + res.data);
             navigate("/home");

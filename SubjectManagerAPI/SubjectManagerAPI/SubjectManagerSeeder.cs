@@ -1,4 +1,5 @@
-﻿using SubjectManagerAPI.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using SubjectManagerAPI.Entities;
 
 namespace SubjectManagerAPI
 {
@@ -15,6 +16,12 @@ namespace SubjectManagerAPI
         {
             if (_dbContext.Database.CanConnect())
             {
+                var pendingMigrations = _dbContext.Database.GetPendingMigrations();
+
+                if (pendingMigrations!=null && pendingMigrations.Any())
+                {
+                    _dbContext.Database.Migrate();
+                }
                 if (!_dbContext.Users.Any())
                 {
                     var users = GetUsers();

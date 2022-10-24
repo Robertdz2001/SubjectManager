@@ -8,7 +8,7 @@ namespace SubjectManagerAPI.Controllers
 {
     [Route("api/user")]
     [ApiController]
-    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _service;

@@ -2,6 +2,8 @@ using System.Text;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using SubjectManagerAPI;
 using SubjectManagerAPI.Entities;
@@ -17,7 +19,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+                          policy.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
                       });
 });
 
@@ -52,7 +54,10 @@ builder.Services.AddControllers().AddFluentValidation();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddDbContext<SubjectManagerDbContext>();
+
+builder.Services.AddDbContext<SubjectManagerDbContext>
+    (options=>options.UseSqlServer(builder.Configuration.GetConnectionString("SubjectManagerDbConnection")));
+
 builder.Services.AddScoped<SubjectManagerSeeder>();
 builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
@@ -65,19 +70,21 @@ builder.Services.AddScoped<ILearningMaterialService, LearningMaterialService>();
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
-var db = new SubjectManagerDbContext();
-var seeder = new SubjectManagerSeeder(db);
 
-// Configure the HTTP request pipeline.
-seeder.Seed();
+
+  
+    
 app.UseMiddleware<ErrorHandlingMiddleware>();
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    app.UseSwaggerUI(c=>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Subject Manager API");
+    });
+//}
 app.UseAuthentication();
-
+SeedDatabase();
 app.UseCors(MyAllowSpecificOrigins);
 app.UseHttpsRedirection();
 
@@ -86,3 +93,15 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+
+
+void SeedDatabase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<SubjectManagerSeeder>();
+        dbInitializer.Seed();
+    }
+}

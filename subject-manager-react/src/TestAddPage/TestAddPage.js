@@ -19,7 +19,7 @@ function TestAddPage() {
         e.preventDefault();
 
         try {
-            const res = await axios.post(`https://localhost:7158/api/subjects/${id}/tests`, newTest, {
+            const res = await axios.post(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}/tests`, newTest, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }

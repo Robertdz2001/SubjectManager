@@ -31,7 +31,7 @@ function Subject(props) {
     const handleDeleteSubject = async () => {
 
         try {
-            const res = await axios.delete(`https://localhost:7158/api/subjects/${props.subject.id}`, {
+            const res = await axios.delete(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${props.subject.id}`, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }

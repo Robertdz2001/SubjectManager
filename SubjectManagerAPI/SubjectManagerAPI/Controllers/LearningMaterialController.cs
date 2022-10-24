@@ -10,7 +10,7 @@ namespace SubjectManagerAPI.Controllers
     [Route("api/subjects/{sid}/learningMaterials")]
     [ApiController]
     [Authorize]
-    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LearningMaterialController : ControllerBase
     {
         private readonly ILearningMaterialService _service;

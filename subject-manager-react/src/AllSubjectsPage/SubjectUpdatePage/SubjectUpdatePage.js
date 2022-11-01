@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import { useEffect } from "react";
-
+import { url } from "../../App/App";
 
 function SubjectUpdatePage(props) {
     const { id } = useParams();
@@ -25,7 +25,7 @@ function SubjectUpdatePage(props) {
         }
 
         try {
-            const res = await axios.put(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}`, updatedSubject, {
+            const res = await axios.put(`${url}/api/subjects/${id}`, updatedSubject, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }
@@ -40,7 +40,7 @@ function SubjectUpdatePage(props) {
     const getOneSubject = async () => {
 
         try {
-            const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}`,
+            const res = await axios.get(`${url}/api/subjects/${id}`,
                 {
                     headers: {
                         'Authorization': localStorage.getItem("token")

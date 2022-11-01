@@ -4,6 +4,7 @@ import { EyeFill, PenFill, TrashFill } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
+import { url } from "../App/App";
 export const formatDate = (date) => {
     const formattedDate = date.replace('T', ' ').slice(0, 19);
     return formattedDate;
@@ -14,7 +15,7 @@ function Test(props) {
 
     const handleDelete = async () => {
         try {
-            const res = await axios.delete(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${props.test.subject.id}/tests/${props.test.id}`, {
+            const res = await axios.delete(`${url}/api/subjects/${props.test.subject.id}/tests/${props.test.id}`, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }

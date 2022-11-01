@@ -3,10 +3,11 @@ import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
+import { url } from "../App/App";
 const getOneMaterial = async (sid, lid) => {
 
     try {
-        const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${sid}/learningMaterials/${lid}`, {
+        const res = await axios.get(`${url}/api/subjects/${sid}/learningMaterials/${lid}`, {
             headers: {
                 'Authorization': localStorage.getItem("token")
             }

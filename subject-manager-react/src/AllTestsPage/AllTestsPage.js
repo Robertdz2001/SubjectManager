@@ -8,9 +8,10 @@ import TestsList from "../TestsList/TestsList";
 import TestsSearchBar from "../TestsSearchBar/TestsSearchBar";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
+import { url } from "../App/App";
 const getAllTests = async () => {
     const res = await axios.get(
-        `https://subjectmanager-api-app.azurewebsites.net/api/tests`,
+        `${url}/api/tests`,
         {
             headers: {
                 'Authorization': localStorage.getItem("token")

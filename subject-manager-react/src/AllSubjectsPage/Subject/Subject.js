@@ -5,6 +5,7 @@ import { EyeFill, PenFill, TrashFill } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
+import { url } from "../../App/App";
 
 export const dayToString = (dayNumber) => {
     switch (dayNumber) {
@@ -31,7 +32,7 @@ function Subject(props) {
     const handleDeleteSubject = async () => {
 
         try {
-            const res = await axios.delete(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${props.subject.id}`, {
+            const res = await axios.delete(`${url}/api/subjects/${props.subject.id}`, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }

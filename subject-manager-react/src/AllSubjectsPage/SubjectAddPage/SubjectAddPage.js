@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import { useNavigate } from "react-router";
-
+import { url } from "../../App/App";
 
 function SubjectAddPage(props) {
 
@@ -23,7 +23,7 @@ function SubjectAddPage(props) {
         console.log(newSubject);
         e.preventDefault();
         try {
-            const resp = await axios.post(`https://subjectmanager-api-app.azurewebsites.net/api/subjects`, newSubject,
+            const resp = await axios.post(`${url}/api/subjects`, newSubject,
                 {
                     headers: {
                         'Authorization': localStorage.getItem("token")

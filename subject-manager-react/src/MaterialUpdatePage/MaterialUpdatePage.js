@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import { useEffect } from "react";
-
+import { url } from "../App/App";
 
 function MaterialUpdatePage(props) {
     const { sid, lid } = useParams();
@@ -20,7 +20,7 @@ function MaterialUpdatePage(props) {
         }
 
         try {
-            const res = await axios.put(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${sid}/learningMaterials/${lid}`, updatedMaterial, {
+            const res = await axios.put(`${url}/api/subjects/${sid}/learningMaterials/${lid}`, updatedMaterial, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }
@@ -35,7 +35,7 @@ function MaterialUpdatePage(props) {
     const getOneMaterial = async () => {
 
         try {
-            const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${sid}/learningMaterials/${lid}`,
+            const res = await axios.get(`${url}/api/subjects/${sid}/learningMaterials/${lid}`,
                 {
                     headers: {
                         'Authorization': localStorage.getItem("token")

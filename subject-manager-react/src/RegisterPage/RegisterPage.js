@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import "./RegisterPage.css";
 import axios from "axios";
+import { url } from "../App/App";
 function RegisterPage() {
     const navigate = useNavigate();
 
@@ -16,7 +17,7 @@ function RegisterPage() {
         console.log(user);
         e.preventDefault()
         try {
-            const res = await axios.post('https://subjectmanager-api-app.azurewebsites.net/api/user/register', user);
+            const res = await axios.post(`${url}/api/user/register`, user);
             if (res) {
                 console.log(res);
                 alert('Registered successfully.');

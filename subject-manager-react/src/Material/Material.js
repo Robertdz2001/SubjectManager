@@ -5,7 +5,7 @@ import { EyeFill, PenFill, TrashFill } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
-
+import { url } from "../App/App";
 const formatText = (text) => {
 
     if (text.length >= 15) {
@@ -22,7 +22,7 @@ function Material(props) {
 
     const handleDelete = async () => {
         try {
-            const res = await axios.delete(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${props.sid}/learningMaterials/${props.material.id}`, {
+            const res = await axios.delete(`${url}/api/subjects/${props.sid}/learningMaterials/${props.material.id}`, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }

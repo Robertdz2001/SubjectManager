@@ -20,6 +20,9 @@ import TestUpdatePage from '../TestUpdatePage/TestUpdatePage';
 import MaterialAddPage from '../MaterialAddPage/MaterialAddPage';
 import MaterialViewPage from '../MaterialViewPage/MaterialViewPage';
 import MaterialUpdatePage from '../MaterialUpdatePage/MaterialUpdatePage';
+
+export const url = "https://localhost:7158";
+
 function App() {
 
 

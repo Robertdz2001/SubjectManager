@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
-
+import { url } from "../App/App";
 function MaterialAddPage() {
 
     const { id } = useParams();
@@ -18,7 +18,7 @@ function MaterialAddPage() {
         e.preventDefault();
 
         try {
-            const res = await axios.post(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}/learningMaterials`, newMaterial, {
+            const res = await axios.post(`${url}/api/subjects/${id}/learningMaterials`, newMaterial, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }

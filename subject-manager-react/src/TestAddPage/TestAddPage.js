@@ -3,6 +3,7 @@ import "./TestAddPage.css";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
+import { url } from "../App/App";
 import { useNavigate, useParams } from "react-router";
 
 function TestAddPage() {
@@ -19,7 +20,7 @@ function TestAddPage() {
         e.preventDefault();
 
         try {
-            const res = await axios.post(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}/tests`, newTest, {
+            const res = await axios.post(`${url}/api/subjects/${id}/tests`, newTest, {
                 headers: {
                     'Authorization': localStorage.getItem("token")
                 }

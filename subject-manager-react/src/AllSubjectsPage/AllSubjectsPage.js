@@ -7,9 +7,10 @@ import AllSubjectsList from "./AllSubjectsList/AllSubjectsList";
 import SearchBar from "./SearchBar/SearchBar";
 import { PlusCircle } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';
+import { url } from "../App/App";
 const getAllSubjects = async () => {
     const res = await axios.get(
-        `https://subjectmanager-api-app.azurewebsites.net/api/subjects`,
+        `${url}/api/subjects`,
         {
             headers: {
                 'Authorization': localStorage.getItem("token")

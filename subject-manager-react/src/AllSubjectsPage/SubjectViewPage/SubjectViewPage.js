@@ -8,10 +8,11 @@ import TestsList from "../../TestsList/TestsList";
 import { PlusCircle } from 'react-bootstrap-icons';
 import { dayToString } from "../Subject/Subject";
 import MaterialsList from "../../MaterialsList/MaterialsList";
+import { url } from "../../App/App";
 const getOneSubject = async (id) => {
 
     try {
-        const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}`, {
+        const res = await axios.get(`${url}/api/subjects/${id}`, {
             headers: {
                 'Authorization': localStorage.getItem("token")
             }
@@ -27,7 +28,7 @@ const getOneSubject = async (id) => {
 const getTests = async (id) => {
 
     try {
-        const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}/tests`, {
+        const res = await axios.get(`${url}/api/subjects/${id}/tests`, {
             headers: {
                 'Authorization': localStorage.getItem("token")
             }
@@ -43,7 +44,7 @@ const getTests = async (id) => {
 const getMaterials = async (id) => {
 
     try {
-        const res = await axios.get(`https://subjectmanager-api-app.azurewebsites.net/api/subjects/${id}/learningMaterials`, {
+        const res = await axios.get(`${url}/api/subjects/${id}/learningMaterials`, {
             headers: {
                 'Authorization': localStorage.getItem("token")
             }

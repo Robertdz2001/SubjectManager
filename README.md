@@ -10,6 +10,9 @@ They are able to add their subjects and then store information about tests and l
 - MS SQL
 - Entity Framework Core
 - JWT .Net
+- React.js
+- HTML
+- CSS
 # Swagger
 
 ![Swagger](https://github.com/Robertdz2001/SubjectManager/blob/main/swagger.jpg?raw=true)
